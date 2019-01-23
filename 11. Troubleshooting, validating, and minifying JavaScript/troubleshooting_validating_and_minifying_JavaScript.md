@@ -94,3 +94,9 @@ function reset(){
 3. Head to where the script exists.
 4. Open **Node.js command prompt** by hitting ` nodejs `.  
 5. Hit ` uglify [original_script_name] -o [minified_script_name] ` where you replace ` original_script_name ` and ` minified_script_name ` with your scripts names.
+
+## Chapter quiz
+1. What is the first troubleshooting step when your JavaScript is not working as expected?  
+Look for errors in the browser console.
+2. You should use a JavaScript linter?  
+TRUE
