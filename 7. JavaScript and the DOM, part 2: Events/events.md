@@ -4,7 +4,7 @@
     * Typing a URL and hitting enter.
     * Clicking a link.
     * Moving the mouse.  
-All of these are events.
+All of these and more are events.
 * Whatever you do in the browser you simply **fire events** and the browser responds to these events using preconfigured responses.
 * Using JavaScript, we can write scripts that are executed whenever the browser captures specific events.
 * UP until now what we do is write scripts that run as soon as the HTML document loads or write scripts directly on the console. However, that does not add any interactivity to our web pages(**passive form**). To add such **interactivity**, we use events(functions triggered whenever specific interactions occurr).
@@ -110,12 +110,12 @@ var windowHeight = window.innerHeight;
 ```
 const BODY = document.body;
 function mouseCoordinates(e){
-  mouseX = e.clientX;
+  let mouseX = e.clientX;
   /* clientX attribute gets the distance from the left most of the window to the mouse pointer */
-  mouseY = e.clientY;
+  let mouseY = e.clientY;
   /* clientY attribute gets the distance from the top most of the window to the mouse pointer */
 }
-BODY.addEventListener("mousemove", mouseCoordinates, false;)
+BODY.addEventListener("mousemove", mouseCoordinates, false);
 /* The mousemove event fires whenever the mouse move on the area of the body */  
 ```
     * To move the circle as the mouse moves? Add this code to the function ` mouseCoordinates `.

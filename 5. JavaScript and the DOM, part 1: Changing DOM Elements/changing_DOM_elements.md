@@ -1,21 +1,21 @@
 ## DOM: The document object model
-* The browser is an object and it has many object inside including the browser window, the document inside the window, the navigation buttons, URL and more.
+* The browser is an object and it has many objects inside including the browser window, the document inside the window, the navigation buttons, URL and more.
 * These objects are modeled using the Browser Object Model(BOM).
 * The window object is the top-level object in the BOM.
-* The object inside the window object that we will interact with all the time is the document object which holds the current html content.
+* The object inside the window object that we will interact with all the time is the ` document ` object which holds the current html content.
 * We can get the document object by ` window.document ` or simply ` document ` since JavaScript lives inside the window.
 * The ` document ` object is modeled using the Document Object Model(DOM).
-* The reason we need to model these objects using BOM and DOM is to make the interaction with them the same independently from the type of the browser.
+* For me, the reason why we need to model these objects using BOM and DOM is to make the interaction with them the same independently from the type of the browser.
 
 ## Target elements in the DOM with querySelector methods
-* To access elements inside the DOC object we have two different situations:
+* To access elements inside the DOM object we have two different situations:
     * High-level elements such as **title, body, url** and more can be accessed using the **dot** notation that we are familiar with.
 ```
 document.body
 document.title
 document.URL
 ```
-    * To get to a node or a group of nodes inside the body we use methods such as:
+    * To get to a node or a group of nodes inside the body we can use methods such as:
 ```
 document.getElementById("some_id")
 document.getElementsByClassName("some_class_name")     // returns a NodeList object
@@ -23,7 +23,7 @@ document.getElementsByTagName("some_html_tag")	      // returns a NodeList objec
 ```
 We also have two methods that are more specific:
         * the method ` querySelector("some_css_selectors") ` which gets the first item in the DOM that mathces a specified css selector(note that a css selector can be an ID, a className or tagName but it should be followed by dot in case of a className, hash in case of an ID, and nothing in case of tagName).
-        * the method ` querySelectorAll("some_css_selectors") ` does the same as ` querySelector ` but returns all elements matching not the first one.  
+        * the method ` querySelectorAll("some_css_selectors") ` does the same as ` querySelector ` but instead of returning the first element matching the given css selectors it returns all elements matching these selectors in the DOM.  
 Note: you can give more than one css selectors as input parameters to the ` querySelector ` and ` querySelectorAll ` methods.
 
 ## Access and change elements
@@ -32,7 +32,7 @@ Note: you can give more than one css selectors as input parameters to the ` quer
 document.querySelector(".student_name").innerHTML = "Hossam";
 document.querySelector(".student_name").outerHTML = "<h1>Hossam</h1>"
 ```
-The difference between the properties ` innerHTML ` and ` outerHTML ` is the the first gets the value indide the element while the second gets the whole element.
+The difference between the properties ` innerHTML ` and ` outerHTML ` is that the first gets the value inside the element while the second gets the whole element.
 
 ## Access and change classes
 * Not all element's properties are accessible. Some of them are read-only.
@@ -40,8 +40,9 @@ The difference between the properties ` innerHTML ` and ` outerHTML ` is the the
 * For the property ` classList ` which contains an array of class values associated with the element, we have those methods:
     * ` add() ` used for adding class values to the list. It **takes** as arguments any number of class values.
 ```
-document.querySelector(".gLFyf").classList.add("newClass");
+document.querySelector(".gLFyf").classList.add("new-class");
 ```
+Notice ` new-class ` without dot.
     * ` remove ` used to remove any number of values.
     * ` item() ` used to retreive a value with its index. This can be done using bracket notation since classList is an array.
 ```
@@ -55,24 +56,25 @@ document.querySelector(".gLFyf").classList[0];
 ```
 document.querySelector(".gLFyf").classList.contains("gsfi");
 ```
+Notice also ` gsfi ` without dot.
     * ` toggle() ` used to enable/disable a specific value. This method can have one input or two inputs. 
-        * In case of two inputs: the first is the value to enable/disable and the second is the boolean enable(true) disable(false). 
-        * In case of one input it a string representing a value then:
+        * In case of two inputs: the first is the value to enable/disable and the second is a boolean: true -> enable, false -> disable. 
+        * In case of one input it is a string representing a value then:
             * if the value exists then remove it(disable).
             * if it does not exist then add it(enable).
 
 ## Access and change attributes
 * The ` attributes ` property is also read-only so we have these methods to deal with it:
-    * ` hasAttribute() ` checks whether the element has a apecified attribute or not.
+    * ` hasAttribute() ` checks whether the element has a apecific attribute or not.
 ```
 document.querySelector(".gLFyf").hasAttribute("href");
 ```
     * ` getAttribute() ` returns the value of a specified attribute. If the attribute does not exist the return value will either be ` null ` or ` "" ` the empty string.
-    * ` setAttribute() ` adds a specific attribute and its value. It takes as arguments the name of the attribute and the value of it.
+    * ` setAttribute() ` adds a specific attribute and its value. It takes as arguments the name of the attribute and its value.
     * ` removeAttribute() ` removs a specific attribute.
 
 ## add DOM elements
-* To add a node in the DOM, we can do that by getting the element we wanna our new element under and using the properties ` innerHTML ` and ` outerHTML ` we can do tha job. However this will make us write a lot of HTML code in our script and any mistake will lead to an error loading the document.
+* To add a node in the DOM, we can do that by getting the element we want our new element to be under and using the properties ` innerHTML ` and ` outerHTML ` we can do tha job. However this will make us write a lot of HTML code in our script and any mistake will lead to an error loading the document.
 * We have a better way to do that:
     1. create a new element using the method ` createElement() ` and pass the element tag as an argument.
     2. create a text node(the content inside that element) using the method ` createTextNode() ` and pass the text as an argument.
@@ -89,7 +91,7 @@ NEW_ELEMENT.appendChild(NEW_TEXT_NODE); // step 3
 const FIG_ELEMENT = document.querySelector(".featured-image"); // step 4
 FIG_ELEMENT.appendChild(NEW_ELEMENT); // step 5
 ```
-* The procedure above is too long but it works with all browsers. We can simplfy it a little bit but the upcoming is not supported by old browsers.  
+* The procedure above is too long but it works with all browsers. We can simplify it a little bit but the upcoming is not supported by old browsers.  
 We can wrap steps 2, 3 into one. Instead of:
 ```
 const NEW_TEXT_NODE = document.createTextNode(CAPTION_TEXT); // step 2

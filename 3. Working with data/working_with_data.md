@@ -16,10 +16,10 @@ var_name = 3;
 x = 5;
 console.log("x = " + x);
 ```
-Here I did not declare x but assigned it a value of 5. In this case JS will say "Ok, I will define it for you". However. this will introduce a problem because this variable will be defined with scope **global**.
+Here I did not declare x but assigned it a value of 5. In this case JS will say "Ok, I will define it for you". However, this will introduce a problem because this variable will be defined with scope **global**.
 
 ## Data types in JavaScript
-* We have six **primitive* data types in JS:
+* We have six **primitive** data types in JS:
     * numeric.
     * string.
     * boolean.
@@ -32,11 +32,11 @@ Here I did not declare x but assigned it a value of 5. In this case JS will say 
 ```
 var x;
 ```
-* To kcheck the data type of a variable use the typeof **operator**. For example:
+* To check the data type of a variable use the typeof **operator**. For example:
 ```
 console.log(typeof x);
 ```
-Recall type is an **operator** not a **function**.
+Recall that ` typeof ` is an **operator** not a **function**.
 
 ## Arithmetic operators and math
 * In JS we have a bunch of operators:
@@ -46,7 +46,7 @@ Recall type is an **operator** not a **function**.
     * Unary operators: ++, --
 
 ## Working with strings and numbers
-* In addition to + operator being arithmetic operator, it is also a string operator. It means **concatenation**. For example:
+* In addition to **"+"** operator being arithmetic operator, it is also a string operator. It means **concatenation**. For example:
 ```
 var count = 5;
 var s = "count = " + count;
@@ -59,7 +59,7 @@ var b = "5";
 var c = a + b;
 console.log(c);
 ```
-This script will output "45". This is not strange. Since one of the variables is a string the + operator is treated as a string operator not an arithmetic one.
+This script will output "45". This is not strange. Since one of the variables is a string the **"+"** operator is treated as a string operator not an arithmetic one.
 * Consider this example:
 ```
 var a = 4;
@@ -67,18 +67,18 @@ var b = "5";
 var c = a * b;
 console.log(c);
 ```
-This script will output 20. Although b is a string and can not be multiplicated, JS will say "Since * is an arithmetic operator, so ofcourse you wanna use b as a numeric type and I will convert it for you".
+This script will output 20. Although b is a string and can not be multiplicated, JS will say "Since **"*"** is an arithmetic operator, so ofcourse you wanna use b as a numeric type and I will convert it for you".
 * **NaN** means **not a number**. You get it when you try to do some maths with non-numeric things and even JS can not convert these things into numbers.
 
 ## Conditional statements and logic
 * Conditional statements exist to help you control where to go based on some condition.
-* If statement is the most popular:
+* ` If ` statement is the most popular:
 ```
 if( some condition ) {
     Do_something
 }
 ```
-* If-else also exists:
+* ` If-else ` also exists:
 ```
 if( some condition ) {
     do_something
@@ -114,12 +114,12 @@ console.log(a === b);
 This script will output **false** because yes 5 equals "5" but they are not **identical**. 5 is a number and "5" is a string.
 * !== means **not** strictly equal.
 * ! is pronounced **bang**.
-* The strict equality operator can be used to check the equality of two strings.
+* The **strict equality** operator as well as the **equality** operator can be used to check the equality of two strings.
 
 ## Advanced conditions and logic
 * For logical **AND** operation we use two **ampersands(&&)** and for logical **OR** operation we use two **vertical lines or pipes(||)**.
 * There is no logical **XOR** operation in JS. We have to do it manually.
-* There is a simpler form for if-else statement. It is the **ternary operator**.
+* There is a simpler form for ` if-else ` statement. It is the **ternary operator**.
 ```
 (some condition)? do_something : do_something_else;
 ```
@@ -180,32 +180,32 @@ colors.reverse();
 console.log("colors: " + colors);
 ```
 output: ["blue", "green", "red"]
-    * ` shift ` removes rhe first element of the array(the element at the left). `reverse` **returns** the shifted item.
+    * ` shift ` removes rhe first element of the array(the element at the left). ` shift ` **returns** the shifted item.
 ```
 colors.shift();
 console.log("colors: " + colors);
 ```
 output: ["green", "blue"]
-    * ` unshift ` adds items at the start of the array. ` shift ` **takes** as arguments the items to be added and **returns** the new length of the array after adding items.
+    * ` unshift ` adds items at the start of the array. ` unshift ` **takes** as arguments the items to be added and **returns** the new length of the array after adding items.
 ```
 colors.unshift("purple", "yellow");
 console.log("colors: " + colors);
 ```
 output: ["purple", "yellow", "red", "green", "blue"]
-    * ` pop ` reoves the last item from the array and **returns** that item.
+    * ` pop ` removes the last item from the array and **returns** that item.
 ```
 colors.pop();
 console.log("colors: " + colors);
 ```
 output: ["red", "green"]
-    * ` push ` adds items to the end of the array. ` pop ` **takes** arguments the items to be pushed and **returns** the new length of the array after adding items.
+    * ` push ` adds items to the end of the array. ` push ` **takes** arguments the items to be pushed and **returns** the new length of the array after adding items.
 ```
 colors.push("purple", "yellow");
 console.log("colors: " + colors);
 ```
 output: ["red", "green", "blue", "purple", yellow"]
     * ` splice ` changes the content of the array by removing, replacing, or adding items. ` splice ` input arguments varies depending on the purpose, and **returns** an array containing the removed items.
-        * removes a number of items from the array. For that purpose ` splice ` **takes** two arguments: The first is the index to start removing from and the second is the number of items to remove.
+        * removes a number of items from the array. For that purpose ` splice ` **takes** two arguments: The first is the index to start removing from and the second is the number of items to be removed.
 ```
 colors.splice(1, 2);
 console.log("colors: " + colors);
@@ -217,7 +217,7 @@ colors.splice(1, 1, "purple", "yellow");
 console.log("colors: " + colors);
 ```
 output: ["red", "purple", "yellow", "blue"]
-        * adds a number of items starting from a specific index. For that purpose ` splice ` takes as arguments an unlimited number of arguments: the first is the index to start adding items from, the second is the number of items to be removed and for **adding** purpose this argument should be zero, and the rest of arguments are the items to be added.
+        * adds a number of items starting from a specific index. For that purpose ` splice ` takes an unlimited number of arguments: the first is the index to start adding items from, the second is the number of items to be removed and for **adding** purpose this argument should be zero, and the rest of arguments are the items to be added.
 ```
 colors.splice(1, 0, "purple", "yellow");
 console.log("colors: " + colors);
@@ -232,9 +232,10 @@ copy.push("purple");
 console.log("copy after: " + copy);
 ```
 output:  
-original: ["red", "green", "blue"]
-copy before: ["red", "green", "blue"]
-copy after: ["red", "green", "blue", "purple"]
+original before: ["red", "green", "blue"]  
+copy before: ["red", "green", "blue"]  
+copy after: ["red", "green", "blue", "purple"]  
+original after: ["red", "green", "blue"]
 ```
     * ` indexOf ` searches for a specific item within the array and returns its index if exists if not returns -1 indicating that the item does not exist within the array. ` index ` can be given as arguments the item to be searched for only or we can add an index to start searching from.
 ```
@@ -249,12 +250,12 @@ output: blue exists at index 2
 ```
 var joinedItems = colors.join();
 console.log("Items joined using comma: " + joinedItems);
-joinedItems = colors.join("|");
+joinedItems = colors.join(" | ");
 console.log("Items joined using pipe: " + joinedItems);
 ```
 output:  
-Items joined using comma: red,purple,yellow,purple,yellow,green,orange,blue
-Items joined using pipe: red|purple|yellow|purple|yellow|green|orange|blue
+Items joined using comma: red, green, blue  
+Items joined using pipe: red | green | blue
 
 ## Chapter quiz
 1. Which of these code examples is the correct way to declare variables?  

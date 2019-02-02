@@ -1,5 +1,5 @@
 ## JavaScript validation and troubleshooting
-* JavaScript sometimes behave in a very strange way so it is a goof idea to address **validation** and **troubleshooting**.
+* JavaScript sometimes behave in a very strange way so it is a good idea to address **validation** and **troubleshooting**.
 * **Validation** is the process of checking or proving the validity(correctness and accuracy) of something or ,simply, proving that a product or service does what it is intended to do.
 * **Troubleshooting** means getting involved to see what's wrong and solve problems.
 * This chapter introduces us to a set of tools that we can use in validation and troubleshooting:
@@ -9,8 +9,8 @@
     * Tips on how to troubleshoot your code to catch problems earlier as soon as possible.
 
 ## Troubleshooting JavaScript
-* Tip: Whenever you encounter the error ` Unexpected SyntaxError: Unexpected end of input ` or ` Unexpected SyntaxError: Unexpected end of input ` , definitely you forgot to close parenthesis, curly braces, or square brackets. For this type of error the code editor can help you by checking each parenthesis, curly brace, and square bracket is properly closed. If you get the cursor before or after the opening one or the closing one, the code editor highlights both.
-* The second debugging tool is color coding. Methods, variables, numbers, strings, keywords, categories have different colors.
+* Tip: Whenever you encounter the error ` Unexpected SyntaxError: Unexpected end of input ` or ` Unexpected SyntaxError: Unexpected end of function ` , definitely you forgot to close parenthesis, curly braces, or square brackets. For this type of error the code editor can help you by checking each parenthesis, curly brace, and square bracket is properly closed. If you get the cursor before or after the opening one or the closing one, the code editor highlights both.
+* The second debugging tool is color coding. Methods, variables, numbers, strings, keywords, different categories have different colors.
 
 ## Send troubleshooting info to the console
 * ` console.log() ` is not the only function that you can use to output something on the console. Actually there are a bunch of methods there. The most useful two of them are:
@@ -50,7 +50,7 @@ function reset(){
 ```
 
 ## Step through your JavaScript with browser tools
-* Browsers come with a very powerful tool for **debugging**. To access this tool open the **Sources** tab right to console. Using this tool you can:
+* Browsers come with a very powerful tool for **debugging**. To access this tool open the **Sources** tab(on Chrome) or **Debugger** tab(on Mozilla) right to the console tab. Using this tool you can:
     * Set break points to tell the browser stop here to see the state right now.
     * Execute your script line by line.
     * See how variables change in each step.
@@ -58,13 +58,13 @@ function reset(){
 
 ## Online script linting
 * There are multiple tools that you can use to test the quality of your JavaScript code and make sure that you follow the **standards** and **best practices**.
-* JavaScript is a very **flexible** programming language in the sense that it says now problem when you forget to add a semicolon at the end of any statement, forget to declare a variable before using it, and many other issues that JavaScript handles for you.   
+* JavaScript is a very **flexible** programming language in the sense that it says no problem when you forget to add a semicolon at the end of any statement, forget to declare a variable before using it, and many other issues that JavaScript handles for you.   
 * This **flexibility** however sometimes result in weirred things. So we use some tools to improve our scripts as well as coding habits.
 * The most common tool for that purpose is **JSlint**. **JSlint** is a very powerful tool that helps you achieve high efficient code style. The problem with **JSlint** is that it concentrates on many issues that somebodies think that these are not necessary things such as indentation and suitable spaces between tokens.
 * An alternative to **JSlint** is **JShint** which is yet a powerful tool with much flexibility than **JSlint** in the sense that it concentrates on the important issues with your script that affect the quality.
 
 ## Automate script linting
-* Using an online tool for the purpose of **linting**(treating wounds or simply solving issues) requires you all the time to copy your script source code, go online, paste it, and see the report. This is a lot of headache. Alternatively we can add a linting tool to our text editor(__Atom__).
+* Using an online tool for the purpose of **linting**(treating wounds or simply solving issues) requires you all the time to copy your script source code, go online, paste it, and see the report. This is a lot of headache. Alternatively, we can add a linting tool to our text editor(__Atom__).
 
 * For this purpose, We can use **ESlint** to do the job. Here are the steps to integrate it with __Atom__:
     1. Make sure **Node.js** and **NPM**(Node Package Manager) installed.
@@ -89,11 +89,11 @@ function reset(){
 * As we did with linting, we wish to integrate a minification tool. In this case the tool works as just a command-line one independent of the text editor.
 * There are many tools out there. One of them is **uglify-js**.
 * To use it:
-1. Make sure **Node.js** and **NPM**(Node Package Manager) installed.
-2. Install it using ` sudo npm install -g uglify-js `.(if uglify-js still does not support ES6, use **uglify-js-es6** instead).
-3. Head to where the script exists.
-4. Open **Node.js command prompt** by hitting ` nodejs `.  
-5. Hit ` uglify [original_script_name] -o [minified_script_name] ` where you replace ` original_script_name ` and ` minified_script_name ` with your scripts names.
+    1. Make sure **Node.js** and **NPM**(Node Package Manager) installed.
+    2. Install it using ` sudo npm install -g uglify-js `.(if uglify-js still does not support ES6, use **uglify-js-es6** instead).
+    3. Head to where the script exists.
+    4. Open **Node.js command prompt** by hitting ` nodejs `.  
+    5. Hit ` uglify [original_script_name] -o [minified_script_name] ` where you replace ` original_script_name ` and ` minified_script_name ` with your scripts names.
 
 ## Chapter quiz
 1. What is the first troubleshooting step when your JavaScript is not working as expected?  

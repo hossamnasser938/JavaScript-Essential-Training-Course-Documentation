@@ -16,7 +16,7 @@ guides the browser on how to display the content(presentation layer).
 Logic code that interacts with the HTML as well as the CSS to make the web page much more interactive(interactive layer).
 
 ## How is JavaScript related to Java?
-Actually JavaScript and Java are totally different things. The thing that they share in common is that they are programming languages. **JavaScript is to Java** what **Car is to Carpet**.
+Actually JavaScript and Java are totally different things. The thing that they share in common is that they are programming languages. **Java is to JavaScript** what **Car is to Carpet**.
 
 ## Navigating the JavaScript landscape
 * ECMAScript is a standard that JavaScript conforms to.

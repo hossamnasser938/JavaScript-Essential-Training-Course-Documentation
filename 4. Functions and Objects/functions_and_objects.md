@@ -8,7 +8,7 @@
     * provide an **output**(called **return value**) to be used by other functions.
 * In JavaScript we have three types of functions:
     1. Named functions  
-Functions defined with a name. This name can be used to call or invoke the function later.
+Functions defined with a name. This name can be used to call or invoke the function later.  
 Definition:
 ```
 function sum(a, b){
@@ -20,7 +20,7 @@ Invokation:
 var c = sum(3, 4);
 ```
     2. Anonymous functions  
-Functions with no names. They are stored in a variable and called using the name of that variable.
+Functions with no names. They can be stored in a variable and called using the name of that variable or can be given as a parameter to another function.
 ```
 var anonymousFun = function(){
   console.log("I am an Anonymous function");
@@ -37,8 +37,6 @@ Executed by the browser as soon as it encounters them.
 * These types of functions will be illustrated later.
 * It is best practice to define the function before calling it. This helps humans reading your code.
 * Each function has an arguement's object which is an array of possible arguments that can be passed to the function when calling it.
-
-## Build a basic function
 
 ## Add arguments to the function
 * Defining a funcion that accesses variables from outside the function limits the reusability of the function because the execution of it now depends on those variables.
@@ -66,6 +64,7 @@ Now the function whichIsBigger can operate on any variables or values given as i
 function whichIsBigger(a, b){
   var biggest;
   a > b ? biggest = a: biggest = b;
+  return biggest;
 }
 var n1 = 3 / 7, n2 = 5 / 8;
 var result = whichIsBigger(n1, n2);
@@ -73,7 +72,7 @@ var result = whichIsBigger(n1, n2);
 
 ## Anonymous functions
 * An anonymous function is a function with no name. So how can we call it when it does not have a name? 
-* An anonymous function should be **tied** with a variable or an event. When it is ties to a variable we can call the function using the variable name exactly as if it were a function name.
+* For an anonymous function be called manually it must be assigned to a variable. When it is assigned to a variable we can call the function using the variable name exactly as if it were a function name.
     * Definition: 
 ```
 var biggest = function(a, b){
@@ -84,9 +83,8 @@ var biggest = function(a, b){
 ```
 biggest(3 / 4, 5 / 7);
 ```
-* Ofcourse you ask why we need anonymous functions? for me until now no adequate answer is ready but I have two notes. 
-    * When defining events you may want to define a function to be called when that event occurs. Since the function will be called by the event not you, the function does not have to have a name. It is just necessary to be **tied** with its event somehow.
-    * Sometimes you want to pass a function as an argument to another function, since the function is stored in a variable you can easily pass this variable.
+* Ofcourse you ask why we need anonymous functions? 
+    * When defining events you may want to define a function to be called when that event occurs. Since the function will be called by the event not you, the function does not have to have a name. It is just sufficient to be **tied** with its event somehow.
 
 ## Immediately invoked function expression
 * What happens if we logged variable that contains an anonymous function.
@@ -96,13 +94,14 @@ console.log(biggest);
 Actually you will see the **code** in this anonymous function because that is what the variable holds.
 
 * Immedialtely invoked function expressions(IIFE) are functions that are executed by the browser immediately as soon as the browser encounters it. In other words you define it and immediately call it.
-* IIFE syntax:
+* IIFE syntax:  
 ```
 (function(a, b){
   a > b ? console.log(a + " is bigger"): console.log(b + " is bigger");
 })(5 / 7, 8 / 9);
 ```
 or if we want the IIFE to return a value:
+```
 var biggest = (function(a, b){
   a > b ? return a: return b;
 })(5 / 7, 8 / 9);
@@ -112,7 +111,7 @@ var biggest = (function(a, b){
 console.log(biggest);
 ```
 Would we get the code of the function? No, we would get the output of the function which is in this case the biggest from (5 / 7, 8 / 9).
-* You may know wonder why we wrap a block of code in a function if we will call it just once. Why not we simply execute this could with no function? Untill now I have no idea.
+* You may now wonder why we wrap a block of code in a function if we will call it just once. Why not we simply execute this with no function? Untill now I have no idea.
 
 ## Variable scope
 * The scope of a variable is where in your code the variable is accessible.
@@ -141,8 +140,29 @@ function checkAge(age){
   }
 }
 ```
-here the ` state ` variable has scope of only the if block not the whole function. Unlike other programming languages, JavaScript treats variables defined with ` var ` keyword inside an inner block of a function as if it were declared outside the inner block inside the function itself.
-
+here the ` state ` variable has scope of only the if block not the whole function. Thus if we tried to access this variable outside the if inside the function like this
+```
+function checkAge(age){
+if(age > 15){
+let state = "old enough"
+}
+console.log(state);
+}
+checkAge(20);
+```
+We will get an error ` ReferenceError: state is not defined `.  
+Unlike other programming languages, JavaScript treats variables defined with ` var ` keyword inside an inner block of a function as if it were declared outside the inner block inside the function itself. So if we declared ` state ` using ` var ` inside ` if ` statement we still can access this variable anywhere inside the function. Thus this code is executed with no problem.
+```
+function checkAge(age){
+  if(age > 15){
+  var state = "old enough"
+  }
+  console.log(state);
+}
+checkAge(20);
+```
+Output: old enough
+ 
 ## Make sense of objects
 * JavaScript is an object-oriented language with flexibility towards object orientation. Guess what? JavaScript has no classes.
 * How is JavaScript a **scripting language** and also **object-oriented** language?
@@ -217,7 +237,7 @@ console.log(c.title);
 which we use in two situations:
         * to access properties with names that may contain operators like (emp:name). If we tried to use **Dot motation** JS will consider **:** as an operator and it will get confused.
 ```
-console.log(c["title"]);
+console.log(c["emp:name"]);
 ```
         * to get properties that we have their names stored in variables.
 ```
@@ -236,10 +256,10 @@ function sayHello(name){
 var helloHos = sayHello("Hosam");
 var helloSo = sayHello("Soad");
 ```
-Here we created a function that returns an inner function so the variables ` helloHos ` and ` helloSo ` contains the code block of the inner function, right?  
+Here we created a function that returns an anonymous inner function so the variables ` helloHos ` and ` helloSo ` contains the code block of the inner function, right?  
 If that is the case what will happen when executing the inner function by calling ` helloHos(); ` or ` helloSo(); `? Intuitively it will generate an error because it know nothing about the variable ` name ` used in the ` alert ` statement. However, it will work perfectly. That is because of **closures**.  
-* A **closure** is a function wrapped with its lexical environment. This means that the variables ` helloHos ` and ` helloSo ` not only contain the inner function but also its lexical environment or the variables and functions defined in its scope. In this case the lexical environment is only the variable ` name `. That's why the previous script runs with no errors.
-For practical use of closures go to this [MDN Article on closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
+* A **closure** is a function wrapped with its **lexical environment**. This means that the variables ` helloHos ` and ` helloSo ` not only contain the inner function but also its lexical environment or the variables and functions defined in its scope. In this case the lexical environment is only the variable ` name `. That's why the previous script runs with no errors.
+For practical use of closures refer to this article [MDN Article on closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
 
 ## Chapter quiz
 1. Functions execute as soon as they are read by the browser?  

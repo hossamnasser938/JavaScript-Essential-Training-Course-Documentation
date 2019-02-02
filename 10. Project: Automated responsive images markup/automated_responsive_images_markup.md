@@ -1,9 +1,9 @@
 * This project aims to use JavaScript to solve the problem of **responsive images**.
 * I understand **Responsive** as it means that the product(whether mobile app or web app) adapts to different screen sizes. So the app should look differently on different screen sizes. This is because bigger screen sizes allow to set the content in a way that small screen sizes do not.
-* Responsive images refers to the ability to load different sizes of the same images on devices with different screen sizes since it is a waste to download a big image when you actually need a small one.
+* Responsive images refer to the ability to load different sizes of the same images on devices with different screen sizes since it is a waste to download a big image when you actually need a small one.
 * Browsers provide some useful tools for developers. One of which is **Responsive Design Mode** which we can use to see how the app looks like on different screen sizes. To use it: ` Tools > Web Developer > Responsive Design Mode `.
 
-* We see `slice` method used with arrays. Now we see this method on strings. `slice` is used in two different ways:
+* We used `slice` method with arrays before. Now we see this method on strings. `slice` is used in two different ways:
     * It can accept one argument which is the start index. In this case it returns the substring starting from this index till the string end. For example:
 ```
 var s = "Hossam";
@@ -29,7 +29,6 @@ console.log(s.slice(-9, -3));  /* The indices is calculated = (17-9, 17-3) = (8,
         2. _optionally_ white space followed by either a width descriptor which is the width of the image followed by 'w' character(ex: "400w") or a pixel density descriptor which is the density number followed by character 'x' (ex: "4x").  
     An example that shows how to generate this list is the following. Suppose that the image src are in this format: "images/testimonials/zerog-400.jpg" and we need to add those srces: "images/testimonials/zerog-800.jpg", "images/testimonials/zerog-1200.jpg" ,"images/testimonials/zerog-1600.jpg" ,"images/testimonials/zerog-2000.jpg"
 ```
-/* imgSrc is the source of the image with no  */
 const IMAGES = document.querySelectorAll("img");
 function generateSrcSet( imgScrc ) {
   let srcSet = [];
@@ -53,7 +52,7 @@ IMAGES.forEach( function( element ) {
         #### A few comments:
             * We used the ` slice ` method to cut this part "-400.jpg" which is a 7 characters.
             * We accessed our custom data attribute which we named ` data-type ` using ` element.getAttribute("data-type") `.
-            * We define a variable to be an array by assigning to it an empty brackets ` let srcSet = []; `.
+            * We defined a variable to be an array by assigning to it an empty brackets ` let srcSet = []; `.
             * We used the ` join ` method with arrays to combine array elements in a single comma-separated string of those elements. We did this to prepare tha value of the ` srcset ` attribute.
 
     * ` sizes ` which is a set of comma separated list of strings . Each string is composed of media condition and their appropriate images width.

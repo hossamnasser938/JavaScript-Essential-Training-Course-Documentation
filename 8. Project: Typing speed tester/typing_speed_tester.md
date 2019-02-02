@@ -15,13 +15,13 @@ This project aims to build a typing speed tester in which there is some text for
   background-color : orange;
 }
 ```
-In this CSS sheet the rules under `reset` are applied to the button when you are not hovering over. Once you hover over the button the rules under `reset : hover` are applied. Interchanging the colors of the text and the background, as you see in this example, makes the button looks great.
+In this CSS sheet the rules under `reset` are applied to the button when you are not hovering over. Once you hover over the button, the rules under `reset : hover` are applied. Interchanging the colors of the text and the background, as you see in this example, makes the button looks great.
 
-* To detect when a user start typing in some area, use either the event `keypress` or the event `keyup` both of them fires as soon as a user hits a key on the keyboard but there is a little difference between them:
-    * `keypress` fires when keys that produces character value(numeric, alphabetic, and punctuation keys) is **pressed** which means it fires **right before** the key typed is captured so when accessing the text typed it **does not** contain the key typed. Unfortunately, this event is now **deprecated** and it is recommended to use either `keydown`(fires when **any key** is **pressed**) or `beforeinput`(fires when an input DOM element_such as `<input>`, `<select>`, `<textarea>`_ is about to be modified).
+* To detect when a user start typing in some area, use either the event `keypress` or the event `keyup` both of them fire as soon as a user hits a key on the keyboard but there is a little difference between them:
+    * `keypress` fires when keys that produce character value(numeric, alphabetic, and punctuation keys) is **pressed** which means it fires **right before** the key typed is captured so when accessing the text typed it **does not** contain the key typed. Unfortunately, this event is now **deprecated** and it is recommended to use either `keydown`(fires when **any key** is **pressed**) or `beforeinput`(fires when an input DOM element_such as `<input>`, `<select>`, `<textarea>`_ is about to be modified).
     * `keyup` fires when any key(not just keys that produce character value) is **released** which means it fires **right after** the key(if it is a key that produce character value) typed is captured(when a key is released) so when accessing the text typed it **does  contain** the key typed.
 
-* To access the text entered by the user in a `<textarear>` element, suppose that we have a textarea DOM element with id testarea. We need first to get a reference to that element and then access the `value` property:
+* To access the text entered by the user in a `<textarea>` element, suppose that we have a textarea DOM element with id testarea. We need first to get a reference to that element and then access the `value` property:
 ```
 const TEST_AREA = document.querySelector("#testarea");
 var textEntered = TEST_AREA.value;
@@ -62,7 +62,7 @@ function stopCounter() {
 }
 ```  
 
-* We can enhance how the timer looks. We want the timer to display two-digit numbers even if one-digit number exists so instead of "0:8:65" we want "00:08:65". We can declare a helper function that leads a zero if the number given is one-digit. We can do that with no care about strings and integers because we now that whenever a number stored as a string JavaScript treats it as a number whenever we attempt to use it as a number.
+* We can enhance how the timer looks. We want the timer to display two-digit numbers even if one-digit number exists so instead of "0:8:65" we want "00:08:65". We can declare a helper function that leads a zero if the number given is one-digit. We can do that with no care about strings and integers because we know that whenever a number stored as a string JavaScript treats it as a number whenever we attempt to use it as a number.
 ```
 function leadZero(n){
   if(n <= 9) {
@@ -104,7 +104,7 @@ function spellCheck() {
 }
 TEST_AREA.addEventListener("keyup", spellCheck, false);
 ```   
-Hint: `substring` is a function gets a portion of a string(substring). It takes as arguments: the index of the character to start from and the ((index of the character to end at) + 1). If `substring` is given one parameter it returns the substring that starts with the character with index specified by this parameter till the end of the string. 
+Hint: `substring` is a function that gets a portion of a string(substring). It takes as arguments: the index of the character to start from and the ((index of the character to end at) + 1). If `substring` is given one parameter it returns the substring that starts with the character with index specified by this parameter till the end of the string. 
 
 * Now we wanna count the number of errors the user has made during typing. It is very simple. We declare a global variable `errorsCounter` initialized with zero and whenever we detect an error we increment it. We modify this block:
 ```

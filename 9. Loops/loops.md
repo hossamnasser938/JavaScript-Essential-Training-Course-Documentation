@@ -16,7 +16,7 @@ while (i < 325) {
   i *= 2.3;
 }
 ```
-    3. `do while` loop does the same as `while` loop but the difference is that `do while` loop **executes and then check** which ensures that the code block wrapped in the `do` will get executed for at least once.
+    3. `do while` loop does the same as `while` loop but the difference is that `do while` loop **executes and then check** which ensures that the code block wrapped in the `do` **will get executed for at least once**.
 ```
 var i = 325;
 do {
@@ -35,7 +35,7 @@ while (i < 325) {
 The output is nothing since the condition does not hold for the first time.
 
 ## Looping through arrays
-Let's see our first practical example using loops. We wanna get all external links in a document and for assure that each one have the `target` attribute set to "\_blank".
+Let's see our first practical example using loops. We wanna get all external links in a document and make sure that each one has the `target` attribute set to "\_blank".
 ```
 const EXTERNAL_LINKS = document.querySelectorAll('a[href^="http"]');
 for ( var i = 0; i < EXTERNAL_LINKS.length; i++ ) {

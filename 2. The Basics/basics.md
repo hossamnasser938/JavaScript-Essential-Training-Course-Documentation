@@ -7,7 +7,8 @@ JavaScript needs no compilation to run on the browser. This means what tools you
 * We can write and execute JavaScript code directly in the browser using the **console**.
     1. Hit right click on the browser
     2. select inspect
-    3. choose console
+    3. choose console  
+Or alternatively use the shortcut(` ctrl + shift + i ` then choose ` console `)
   
 * First lines of JavaScript:  
     * Alert command shows a pop up with information in the quotes.  
@@ -31,7 +32,7 @@ document.body.innerHTML = "<h1> Today is " + date + "</h1>"
 ## Add inline JavaScript to an HTML
 * In a real project we do not write and execute JavaScript from the console but we have two choices:
     * Write JS inside the HTML document.
-    * Write JS in a separate file and connect it with the HTML document telling the browser to download this file alngside the HTML document.
+    * Write JS in a separate file and connect it with the HTML document telling the browser to download this file alongside the HTML document.
 * To write JS inside the HTML document, we add a special tag called ` script `.
 * The place of the ` script ` tag depends on **when** you want the script to be executed and other factors.
     * If we want the ` script ` to run **before** the HTML elements are rendered, we can add it within the ` head ` element.
