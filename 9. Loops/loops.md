@@ -3,40 +3,40 @@
 * Loops in JavaScript are not different from most programming languages(Till now).
 * We have three types of loops:
     1. `for` loop lets us execute a block of code a **given** number of times.
-```
-for (var i = 0; i < 10; i++) {
-  console.log(i);
-}
-```
+    ```js
+    for (var i = 0; i < 10; i++) {
+      console.log(i);
+    }
+    ```
     2. `while` loop lets us execute a block of code as soon as some **condition** hold.
-```
-var i = 1;
-while (i < 325) {
-  console.log(i);
-  i *= 2.3;
-}
-```
+    ```js
+    var i = 1;
+    while (i < 325) {
+      console.log(i);
+      i *= 2.3;
+    }
+    ```
     3. `do while` loop does the same as `while` loop but the difference is that `do while` loop **executes and then check** which ensures that the code block wrapped in the `do` **will get executed for at least once**.
-```
-var i = 325;
-do {
-  console.log(i);
-  i *= 2.3;
-} while (i < 325);
-```
-The output of the `do while` loop in this example is: 325 . However, if we used the while loop like this:
-```
-var i = 325;
-while (i < 325) {
-  console.log(i);
-  i *= 2.3;
-}
-```
-The output is nothing since the condition does not hold for the first time.
+    ```js
+    var i = 325;
+    do {
+      console.log(i);
+      i *= 2.3;
+    } while (i < 325);
+    ```
+    The output of the `do while` loop in this example is: 325 . However, if we used the while loop like this:
+    ```js
+    var i = 325;
+    while (i < 325) {
+      console.log(i);
+      i *= 2.3;
+    }
+    ```
+    The output is nothing since the condition does not hold for the first time.
 
 ## Looping through arrays
 Let's see our first practical example using loops. We wanna get all external links in a document and make sure that each one has the `target` attribute set to "\_blank".
-```
+```js
 const EXTERNAL_LINKS = document.querySelectorAll('a[href^="http"]');
 for ( var i = 0; i < EXTERNAL_LINKS.length; i++ ) {
   if ( !EXTERNAL_LINKS[i].hasAttribute("target") ) {
@@ -44,13 +44,14 @@ for ( var i = 0; i < EXTERNAL_LINKS.length; i++ ) {
   }
 }
 ```
+
 #### Some comments:
 * We used `querySelectorAll` function to get all the elements with given CSS selectors.
 * `'a[href^="http"]'` this selector means all **links** (`a`) that has **attribute** (`href`) with value **starts** with **http**(`href^="http"`).
 
 #### Alternative way
 In most programming languages, we have `for each` syntax to facilitate looping through array elements. In JavaScript we have `forEach` defined as a **method** on Arrays. `forEach` accepts as arguments a function that accepts the element of the array to be executed on. We can use `forEach` to accomplish the same goal.
-```
+```js
 const EXTERNAL_LINKS = document.querySelectorAll('a[href^="http"]');
 EXTERNAL_LINKS.forEach( function( element ) {
   if ( !element.hasAttribute("target") ) {
@@ -62,7 +63,7 @@ Note: this is another good use case of **Anonymous function**.
 
 ## Break and continue loops
 * `break` keyword is used to terminate the current loop and go straight to the statement that follows the loop. To illustrate the idea let's generate random numbers between(0:30) until we generate the number 17.
-```
+```js
 const MIN = 0, MAX = 30;
 const EXCEPTION = 17;
 var i = 0;
@@ -79,7 +80,7 @@ console.log("We looped " + i + " times before hitting the exception " + EXCEPTIO
 ```
 
 * `continue` keyword is used to skip the current iteration of the loop and go straight to the next one. To illustrate the idea let's get the prime numbers between 50 and 100.
-```
+```js
 const FLOOR = 50;
 const CEILING = 100;
 function isPrime(n){

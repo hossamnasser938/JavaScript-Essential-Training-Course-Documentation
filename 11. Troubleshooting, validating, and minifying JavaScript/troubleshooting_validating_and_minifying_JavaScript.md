@@ -24,30 +24,30 @@
     * The bug in this scenario: The user types some text(the interval started) that did not match the original text and then clear the whole text leaving the text area empty and starts typing again(a new interval started and we lost the reference to the first one). When the user finishes typing the whole text correctly the second interval will be cleared but the first one will not since we have overridden the variable ` interval ` and lost the reference to the first interval.
     * The solution is:
         1. Declare a boolean variable initialized with ` false `.
-```
-var timerRunning = false;
-```
+        ```js
+        var timerRunning = false;
+        ```
         2. When the user types the first character check before starting an interval that the variable is still ` false `, if so set the variable to ` true ` and start the interval.
-```
-function start() {
-    let textEnterdLength = testArea.value.length;
-    if (textEnterdLength === 0, !timerRunning) {
-        interval = setInterval(runTimer, 10);
-        timerRunning = true;
-    }
-}
-```
+        ```js
+        function start() {
+            let textEnterdLength = testArea.value.length;
+            if (textEnterdLength === 0, !timerRunning) {
+                interval = setInterval(runTimer, 10);
+                timerRunning = true;
+            }
+        }
+        ```
         3. When the user hits reset, clear the variable to ` false ` and clear the interval.    
-```
-function reset(){
-   clearInterval(interval);
-   timerRunning = false;
-   theTimer.innerHTML = "00:00:00";
-   testArea.value = "";
-   testWrapper.style.borderColor = "grey";
-   errorsField.innerHTML = 0;
- }
-```
+        ```js
+        function reset(){
+        clearInterval(interval);
+        timerRunning = false;
+        theTimer.innerHTML = "00:00:00";
+        testArea.value = "";
+        testWrapper.style.borderColor = "grey";
+        errorsField.innerHTML = 0;
+        }
+        ```
 
 ## Step through your JavaScript with browser tools
 * Browsers come with a very powerful tool for **debugging**. To access this tool open the **Sources** tab(on Chrome) or **Debugger** tab(on Mozilla) right to the console tab. Using this tool you can:
