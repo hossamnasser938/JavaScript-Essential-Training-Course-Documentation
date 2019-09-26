@@ -7,7 +7,7 @@ var var_name;
 ```
 That's how we declare a variable in JavaScript.
 * ` var_name ` can be any sequence of uppercase letters, lowercase letters, digits, dollarsign **$**, or underscore **_** . However, we should not start the name of a variable with a digit.
-* Once you declared a variable, it is empty or ` undefined `. Now you can assign it a value, an object or another variable using the equal **=** operator.
+* Once you declared a variable, it is empty or ` undefined `. Now you can assign it a value, an object or another variable using the equal operator(**=**).
 ```js
 var_name = 3;
 ```
