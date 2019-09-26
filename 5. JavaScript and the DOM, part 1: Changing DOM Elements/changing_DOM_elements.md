@@ -22,7 +22,7 @@
   document.getElementsByTagName("some_html_tag")	      // returns a NodeList object
   ```
   We also have two methods that are more specific:
-    * the method ` querySelector("some_css_selectors") ` which gets the first item in the DOM that mathces a specified css selector(note that a css selector can be an ID, a className or tagName but it should be followed by dot in case of a className, hash in case of an ID, and nothing in case of tagName).
+    * the method ` querySelector("some_css_selectors") ` which gets the first item in the DOM that mathces a specified css selector(note that a css selector can be an ID, a className or tagName but it should be followed by *dot* in case of a className, *hash* in case of an ID, and *nothing* in case of tagName).
     * the method ` querySelectorAll("some_css_selectors") ` does the same as ` querySelector ` but instead of returning the first element matching the given css selectors, it returns all elements matching these selectors in the DOM.  
     Note: you can give more than one css selectors as input parameters to the ` querySelector ` and ` querySelectorAll ` methods.
 
